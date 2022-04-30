@@ -70,10 +70,10 @@
 
                 if(current.isBefore(early)) {
                     this.$alert("You are not allowed to punch in before 6:55am");
-                    this.$router.push("/lesliesLogin");
+                    this.$router.push("/");
                 } else if(current.isAfter(veryLate)) {
                     this.$alert("You are not allowed to punch after 7:05pm");
-                    this.$router.push("/lesliesLogin");
+                    this.$router.push("/");
                 }else if(current.isAfter(late) && current.isBefore(veryLate)) {
                     var warningDateTime = new Date()
                     const warningPayload = {
@@ -131,16 +131,16 @@
                             store.state.cooldown = true;
                             store.state.confirmation = "Punch In Successful";
                             this.$confirm(store.state.confirmation).then(() => {
-                                this.$router.push("/lesliesLogin");
+                                this.$router.push("/");
                             });
                     } else {
                         this.$alert("Error Please try again");
-                        this.$router.push("/lesliesLogin");
+                        this.$router.push("/");
                     }
                 } else {
                     var alert = store.state.empName + " " + store.state.empLastName + " has punched too recently";
                     this.$alert(alert);
-                    this.$router.push("/lesliesLogin");
+                    this.$router.push("/");
                 }
             },
             break: function() {
@@ -166,17 +166,17 @@
                             store.state.cooldown = true;
                             store.state.confirmation = "Break punch successful";
                             this.$confirm(store.state.confirmation).then(() => {
-                                this.$router.push("/lesliesLogin");
+                                this.$router.push("/");
                             });
 
                     } else {
                         this.$alert("Error Please try again");
-                        this.$router.push("/lesliesLogin");
+                        this.$router.push("/");
                     }
                 } else {
                 var alert = store.state.empName + " " + store.state.empLastName + " has punched too recently";
                 this.$alert(alert);
-                this.$router.push("/lesliesLogin");
+                this.$router.push("/");
                 }
                 
             },
@@ -203,17 +203,17 @@
                         store.state.cooldown = true; 
                         store.state.confirmation = "Lunch punch successful"; 
                         this.$confirm(store.state.confirmation).then(() => {
-                                this.$router.push("/lesliesLogin");
+                                this.$router.push("/");
                             });   
 
                     } else {
                         this.$alert("Error Please try again");
-                        this.$router.push("/lesliesLogin");
+                        this.$router.push("/");
                     }
                 } else {
                     var alert = store.state.empName + " " + store.state.empLastName + " has punched too recently";
                     this.$alert(alert);
-                    this.$router.push("/lesliesLogin");
+                    this.$router.push("/");
                 }
             },
             punchOut: function() {
@@ -239,17 +239,17 @@
                             store.state.cooldown = true;
                             store.state.confirmation = "Punch out successful";
                             this.$confirm(store.state.confirmation).then(() => {
-                                this.$router.push("/lesliesLogin");
+                                this.$router.push("/");
                             });
 
                     } else {
                         this.$alert("Error Please try again");
-                        this.$router.push("/lesliesLogin");
+                        this.$router.push("/");
                     }
                 }else {
                     var alert = store.state.empName + " " + store.state.empLastName + " has punched too recently";
                     this.$alert(alert);
-                    this.$router.push("/lesliesLogin");
+                    this.$router.push("/");
                             
                 }
             },
