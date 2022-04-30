@@ -69,6 +69,7 @@
 
                 if(current.isBefore(early)) {
                     this.$alert("You are not allowed to punch in before 6:55am");
+                    this.$router.push("/lesliesLogin");
                 } else if(current.isAfter(late)) {
                     var warningDateTime = new Date()
                     const warningPayload = {
