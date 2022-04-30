@@ -58,8 +58,13 @@ export default {
             .then(response => response.json())
             .then(function(data){
                 vm.empInfo = data;
-
-                console.log(vm.empInfo);
+                if(store.state.empID == null) {
+                    store.state.cooldown = false;
+                } else if (store.state.empID == vm.empInfo.employeeId) {
+                    store.state.cooldown = true;
+                } else if (store.state.empID != vm.empInfo.employeeId) {
+                    store.state.cooldown = false;
+                }
                 store.state.empID = vm.empInfo.employeeId;
                 store.state.empName = vm.empInfo.empName;
                 store.state.empLastName = vm.empInfo.empLastName;  

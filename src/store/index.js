@@ -10,11 +10,12 @@ export default new Vuex.Store({
     auth: false,
     session: "",
 
-        empID: null,
-        empName: "",
-        empLastName: "",
-
-
+      empID: null,
+      lastEmpID: null,
+      empName: "",
+      empLastName: "",
+      cooldown: false,
+      confirmation: "",
 
     user: {
       fname: "",
@@ -34,8 +35,17 @@ export default new Vuex.Store({
       state.empId = payload.empId;
       state.empName = payload.empName;
       state.empLastName = payload.empLastName;
-    }
+    },
   },
   actions: {},
-  modules: {}
+  modules: {},
+  watch: {
+    empID: {
+      '$store.state.empID': function() {
+        this.cooldown = false;
+        console.log('cooldown reset');
+      },
+      deep: true
+    }
+  }
 })
