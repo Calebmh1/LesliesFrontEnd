@@ -63,9 +63,9 @@
                 var current = moment("06:55:01", "HH:mm:ss");
                 var early = moment("06:55:00", "HH:mm:ss");
                 var late = moment("07:05:00", "HH:mm:ss");
-                console.log(early);
-                console.log(late);
-                console.log(this.currentTime());
+                //console.log(early);
+                //console.log(late);
+                //console.log(this.currentTime());
 
                 if(current.isBefore(early)) {
                     this.$alert("You are not allowed to punch in before 6:55am");
@@ -79,7 +79,7 @@
                     };
                     var jsonPayload = JSON.stringify(warningPayload);
 
-                    console.log("late");
+                    //console.log("late");
                     var call = "https://leslieswarehouseapi20220422190240.azurewebsites.net/api/Warnings/";
                     fetch(call,{method: "POST", headers: {'Content-Type': 'application/json'},
                         body: jsonPayload});
@@ -109,12 +109,12 @@
                         punchInDateTime: timeStamp, 
                         punchInType: "Punch In"  
                     }
-                    console.log(payload);
+                    //console.log(payload);
 
                     var jsonPayload = JSON.stringify(payload);
                     
                     moment(timeStamp).format("YYYY-MM-DD HH:mm:ss");
-                    console.log(timeStamp);
+                    //console.log(timeStamp);
 
                     if(store.state.empName && store.state.empLastName && store.state.empID) {
                         var call = "https://leslieswarehouseapi20220422190240.azurewebsites.net/api/punchIns";
@@ -147,7 +147,7 @@
                         punchOutDateTime: timeStamp, 
                         punchOutType: "Break"  
                     }
-                    console.log(payload);
+                    //console.log(payload);
 
                     var jsonPayload = JSON.stringify(payload);
                     
@@ -184,7 +184,7 @@
                         punchOutDateTime: timeStamp, 
                         punchOutType: "Lunch"  
                     }
-                    console.log(payload);
+                    //console.log(payload);
 
                     var jsonPayload = JSON.stringify(payload);
                     
@@ -220,7 +220,7 @@
                         punchOutDateTime: timeStamp, 
                         punchOutType: "Punch Out"  
                     }
-                    console.log(payload);
+                    //console.log(payload);
 
                     var jsonPayload = JSON.stringify(payload);
                     
