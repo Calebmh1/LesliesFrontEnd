@@ -60,9 +60,10 @@
             selection: function() {
                 
                 var current = moment();
-                //var current = moment("07:55:01", "HH:mm:ss");
+                //var current = moment("21:55:01", "HH:mm:ss");
                 var early = moment("06:55:00", "HH:mm:ss");
                 var late = moment("07:05:00", "HH:mm:ss");
+                var veryLate = moment("19:05:00", "HH:mm:ss");
                 //console.log(early);
                 //console.log(late);
                 //console.log(this.currentTime());
@@ -70,7 +71,10 @@
                 if(current.isBefore(early)) {
                     this.$alert("You are not allowed to punch in before 6:55am");
                     this.$router.push("/lesliesLogin");
-                } else if(current.isAfter(late)) {
+                } else if(current.isAfter(veryLate)) {
+                    this.$alert("You are not allowed to punch after 7:05pm");
+                    this.$router.push("/lesliesLogin");
+                }else if(current.isAfter(late) && current.isBefore(veryLate)) {
                     var warningDateTime = new Date()
                     const warningPayload = {
                         employeeId: store.state.empID,
@@ -85,7 +89,7 @@
                     fetch(call,{method: "POST", headers: {'Content-Type': 'application/json'},
                         body: jsonPayload});
                 }
-                 if (current.isAfter(early)) {
+                 if (current.isAfter(early)&& current.isBefore(veryLate)) {
                     if(this.punchSelect == "punchIn") {
                     this.punchIn();
                     }else if(this.punchSelect == "break") {
@@ -129,8 +133,6 @@
                             this.$confirm(store.state.confirmation).then(() => {
                                 this.$router.push("/lesliesLogin");
                             });
-
-
                     } else {
                         this.$alert("Error Please try again");
                         this.$router.push("/lesliesLogin");
