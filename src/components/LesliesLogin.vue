@@ -1,6 +1,5 @@
 <template>
     <div>
-    <slot></slot>
         <form>
             <fieldset>
                 <form>
@@ -18,7 +17,7 @@
 
 
 <script>
-    //import store from "@/store/index.js";
+import store from "@/store/index.js";
 
 export default {
     name: "LesliesLogin",
@@ -42,6 +41,7 @@ export default {
             }else {
                 call = "https://leslieswarehouseapi20220422190240.azurewebsites.net/api/Employees/" + this.callID;
                 this.getEmpInfo(call);
+                this.$router.push("/lesliesPunch");
             }  
         },
         currentTime: function() {
@@ -60,9 +60,12 @@ export default {
                 vm.empInfo = data;
 
                 console.log(vm.empInfo);
-                
+                store.state.empID = vm.empInfo.employeeId;
+                store.state.empName = vm.empInfo.empName;
+                store.state.empLastName = vm.empInfo.empLastName;  
+                console.log(store.state.empName);
             });
-    },
+        },
 },
 }
 

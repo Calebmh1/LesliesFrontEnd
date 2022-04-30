@@ -7,17 +7,15 @@ export default new Vuex.Store({
   state: {
 
     callID: "",
-
-    empId: '',
-
     auth: false,
     session: "",
-    empInfo: [
-      {
+
+        empID: null,
         empName: "",
         empLastName: "",
-      }
-    ],
+
+
+
     user: {
       fname: "",
       lname: "",

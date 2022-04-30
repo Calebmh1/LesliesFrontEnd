@@ -2,7 +2,7 @@
     <div>
         <LesliesLogin legend="Leslies Warehouse">
         </LesliesLogin>
-        </div>
+    </div>
 </template>
 
 
