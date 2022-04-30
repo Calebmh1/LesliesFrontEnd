@@ -7,7 +7,7 @@
                     <h2>{{currentDate()}}</h2>
                     <h2>{{currentTime()}}</h2>
                     <label> Enter Employee ID: <input type="text" v-model="callID" required ></label>
-                    <button v-on:click.prevent="generateCall()">Punch In</button>
+                    <button v-on:click.prevent="generateCall()">Login</button>
                 </form>
             </fieldset>
         </form>
