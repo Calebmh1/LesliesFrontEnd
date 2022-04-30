@@ -59,8 +59,8 @@
             },
             selection: function() {
                 
-                //var current = moment();
-                var current = moment("06:55:01", "HH:mm:ss");
+                var current = moment();
+                //var current = moment("07:55:01", "HH:mm:ss");
                 var early = moment("06:55:00", "HH:mm:ss");
                 var late = moment("07:05:00", "HH:mm:ss");
                 //console.log(early);
@@ -83,7 +83,8 @@
                     var call = "https://leslieswarehouseapi20220422190240.azurewebsites.net/api/Warnings/";
                     fetch(call,{method: "POST", headers: {'Content-Type': 'application/json'},
                         body: jsonPayload});
-                } else if (current.isBefore(late) && current.isAfter(early)) {
+                }
+                 if (current.isAfter(early)) {
                     if(this.punchSelect == "punchIn") {
                     this.punchIn();
                     }else if(this.punchSelect == "break") {
