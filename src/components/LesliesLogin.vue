@@ -38,6 +38,7 @@ export default {
         generateCall: function() {
             if(!this.callID) {
                 var call = null
+                this.$alert("Please enter an employee ID");
             }else {
                 call = "https://leslieswarehouseapi20220422190240.azurewebsites.net/api/Employees/" + this.callID;
                 this.getEmpInfo(call);
@@ -59,6 +60,7 @@ export default {
                 vm.empInfo = data;
 
                 console.log(vm.empInfo);
+                
             });
     },
 },

@@ -12,7 +12,12 @@ export default new Vuex.Store({
 
     auth: false,
     session: "",
-    empInfo: [],
+    empInfo: [
+      {
+        empName: "",
+        empLastName: "",
+      }
+    ],
     user: {
       fname: "",
       lname: "",
